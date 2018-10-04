@@ -1,7 +1,5 @@
 package com.example.mateo.obrajescliente;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -15,7 +13,8 @@ import java.util.List;
 
 public class MisAutos extends Fragment {
     private ImageButton button;
-
+    ListView Verlista1;
+    List<Auto> autoList;
     private ListView lv1;
     private String [][] datos = {
             {"Nissan, Plateado","Parqueado"},
@@ -38,6 +37,10 @@ public class MisAutos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+      //  Verlista1=(ListView) view.findViewById(R.id.lv1);
+
+       // autoList =new ArrayList<>();
+
         View view=inflater.inflate(R.layout.fragment_mis_autos, container, false);
 
         button = (ImageButton) view.findViewById(R.id.btnAddAuto);
@@ -53,7 +56,9 @@ public class MisAutos extends Fragment {
 
         });
         return view;
+
     }
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here

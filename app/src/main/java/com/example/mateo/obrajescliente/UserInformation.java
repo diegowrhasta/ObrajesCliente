@@ -17,4 +17,5 @@ public class UserInformation {
         this.ci=ci;
         this.correo=correo;
     }
+
 }

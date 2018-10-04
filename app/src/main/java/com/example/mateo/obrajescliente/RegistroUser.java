@@ -2,15 +2,13 @@ package com.example.mateo.obrajescliente;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.view.View;
-
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +24,7 @@ public class RegistroUser extends AppCompatActivity {
     private DatabaseReference databaseCliente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_user);
         et1 = (EditText) findViewById(R.id.et1);
@@ -73,7 +72,7 @@ public class RegistroUser extends AppCompatActivity {
                                 String id = databaseCliente.push().getKey();
                                 UserInformation userInformation = new UserInformation(nombre,apellido,ci,email);
                                 //se ingresan los datos del usuario en la base
-                                databaseCliente.child(id).setValue(userInformation);
+                                databaseCliente.child(firebaseAuth.getUid()).setValue(userInformation);
                             }else{
 
                                 Toast.makeText(RegistroUser.this,"Ya existe una cuenta con ese correo o la contraseña es muy corta",Toast.LENGTH_LONG).show();
